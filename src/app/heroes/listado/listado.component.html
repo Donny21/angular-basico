@@ -1,0 +1,48 @@
+<p>Listado de Héroes</p>
+
+<h3>Uso de *ngIf y *ngFor</h3>
+
+    <button (click)="borrarHeroe()">
+        Borrar
+    </button>
+    
+    
+    <!-- opcion 1 -->
+    <!-- <div *ngIf="heroeBorrado; else noBorrado"> se le agrega else noBorrado -->
+    <!-- opcion 2 -->
+    <!-- <div *ngIf="heroeBorrado !== ''; else noBorrado"> -->
+    <!-- opcion 3 -->
+    <div *ngIf="heroeBorrado.length > 0; else noBorrado">
+    
+        <h4>Héroe Borrado: <small>{{heroeBorrado}}</small></h4>
+    </div>
+
+    <!-- opción 1 -  para indicar que no se ha borrado nada -->
+    <!-- <div *ngIf="!heroeBorrado">
+        <h4>No ha borrado nada.</h4>
+    </div> -->
+
+    <!-- opción 2 -  para indicar que no se ha borrado nada -->
+    <ng-template #noBorrado>
+        <h4>No ha borrado nada.</h4>
+    </ng-template>
+
+<div>
+    <h2>Ejemplo con *ngFor</h2>
+<ul>
+    <li *ngFor="let heroe of heroes; let i = index;">
+       {{i + 1}} - {{heroe}}
+    </li>
+</ul>
+</div>
+
+
+<!-- <h2>Ejemplo sin *ngFor</h2>
+<ul>
+    <li>{{heroes[0]}}</li>
+    <li>{{heroes[1]}}</li>
+    <li>{{heroes[2]}}</li>
+    <li>{{heroes[3]}}</li>
+    <li>{{heroes[4]}}</li>
+</ul> -->
+
